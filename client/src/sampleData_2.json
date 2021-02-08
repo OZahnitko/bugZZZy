@@ -1,0 +1,46 @@
+{
+  "columns": [
+    { "name": "unassigned" },
+    { "name": "in progress" },
+    { "name": "testing" },
+    { "name": "completed" }
+  ],
+  "issues": [
+    {
+      "assignedTo": "Sasha",
+      "body": "This is the body of the first issue.",
+      "id": "1",
+      "status": "unassigned",
+      "title": "Issues Number One"
+    },
+    {
+      "assignedTo": null,
+      "body": "This is the body of the second issue.",
+      "id": "2",
+      "status": "testing",
+      "title": "Issues Number Two"
+    },
+    {
+      "assignedTo": null,
+      "body": "This is the body of the third issue.",
+      "id": "3",
+      "status": "completed",
+      "title": "Issues Number Three"
+    },
+    {
+      "assignedTo": null,
+      "body": "This is the body of the fourth issue.",
+      "id": "4",
+      "status": "in progress",
+      "title": "Issues Number Four"
+    },
+    {
+      "assignedTo": null,
+      "body": "This is the body of the fifth issue.",
+      "id": "5",
+      "status": "unassigned",
+      "title": "Issues Number Five"
+    }
+  ],
+  "users": ["Sasha"]
+}
