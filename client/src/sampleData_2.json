@@ -3,7 +3,8 @@
     { "name": "unassigned" },
     { "name": "in progress" },
     { "name": "testing" },
-    { "name": "completed" }
+    { "name": "completed" },
+    { "name": "past" }
   ],
   "issues": [
     {
@@ -40,6 +41,13 @@
       "id": "5",
       "status": "unassigned",
       "title": "Issues Number Five"
+    },
+    {
+      "assignedTo": null,
+      "body": "This is the body of the sixth issue.",
+      "id": "6",
+      "status": "past",
+      "title": "Issues Number Six"
     }
   ],
   "users": ["Sasha"]

@@ -7,6 +7,7 @@ import { useAppHooks } from "@hooks";
 import Wrapper from "./styled";
 
 const IssuesContainer = () => {
+  // TODO: Figure out where to put the issues so that the order can be changed within the individual column
   const { columns, issues } = useAppHooks();
 
   const handleDragEnd = (dragResult) => {
