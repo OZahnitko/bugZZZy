@@ -1,52 +1,47 @@
 {
-  "columns": [
-    { "name": "unassigned" },
-    { "name": "in progress" },
-    { "name": "testing" },
-    { "name": "completed" },
-    { "name": "past" }
-  ],
+  "columns": {
+    "unassigned": { "issues": ["5", "6"], "order": 1 },
+    "assigned": { "issues": ["4"], "order": 2 },
+    "in progress": { "issues": ["3"], "order": 3 },
+    "testing": { "issues": ["2"], "order": 4 },
+    "completed": { "issues": ["1"], "order": 5 },
+    "past": { "issues": [], "order": 6 }
+  },
   "issues": [
     {
       "assignedTo": "Sasha",
       "body": "This is the body of the first issue.",
       "id": "1",
-      "status": "unassigned",
       "title": "Issues Number One"
     },
     {
       "assignedTo": null,
       "body": "This is the body of the second issue.",
       "id": "2",
-      "status": "testing",
       "title": "Issues Number Two"
     },
     {
       "assignedTo": null,
       "body": "This is the body of the third issue.",
       "id": "3",
-      "status": "completed",
       "title": "Issues Number Three"
     },
     {
       "assignedTo": null,
       "body": "This is the body of the fourth issue.",
       "id": "4",
-      "status": "in progress",
       "title": "Issues Number Four"
     },
     {
       "assignedTo": null,
       "body": "This is the body of the fifth issue.",
       "id": "5",
-      "status": "unassigned",
       "title": "Issues Number Five"
     },
     {
       "assignedTo": null,
       "body": "This is the body of the sixth issue.",
       "id": "6",
-      "status": "past",
       "title": "Issues Number Six"
     }
   ],

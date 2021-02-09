@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
 import { IssuesColumn } from "@components";
@@ -7,34 +7,94 @@ import { useAppHooks } from "@hooks";
 import Wrapper from "./styled";
 
 const IssuesContainer = () => {
-  // TODO: Figure out where to put the issues so that the order can be changed within the individual column
-  const { columns, issues } = useAppHooks();
+  const { columns, issues, unassignIssue } = useAppHooks();
+  const [columnData, setColumnData] = useState(null);
+  const [dragOrigin, setDragOrigin] = useState(null);
 
   const handleDragEnd = (dragResult) => {
-    console.log(dragResult);
+    setDragOrigin(() => null);
     if (
       dragResult.source?.droppableId === dragResult.destination?.droppableId
     ) {
-      console.log("dropped in the same container");
-      const movedItem = issues.find(
-        (issue) => issue.id === dragResult.draggableId
-      );
-      console.log(movedItem);
+      const sourceContainerFilteredIssueOrder = columnData[
+        dragResult.source.droppableId
+      ].issues.filter((issue, index) => index !== dragResult.source.index);
+      const destinationContainerNewIssueOrder = [
+        ...sourceContainerFilteredIssueOrder.slice(
+          0,
+          dragResult.destination.index
+        ),
+        dragResult.draggableId,
+        ...sourceContainerFilteredIssueOrder.slice(
+          dragResult.destination.index
+        ),
+      ];
+      setColumnData((columnData) => ({
+        ...columnData,
+        [dragResult.destination.droppableId]: {
+          ...columnData[dragResult.destination.droppableId],
+          issues: destinationContainerNewIssueOrder,
+        },
+      }));
     } else if (dragResult.destination === null) {
-      console.log("dropped outside");
+      return;
     } else {
-      console.log("dropped into another container");
+      if (dragResult.destination.droppableId === "unassigned") {
+        unassignIssue(dragResult.draggableId);
+      }
+      const sourceContainerFilteredIssueOrder = columnData[
+        dragResult.source.droppableId
+      ].issues.filter((issue, index) => index !== dragResult.source.index);
+      const destinationContainerOriginalIssueOrder =
+        columnData[dragResult.destination.droppableId].issues;
+      const destinationContainerNewIssueOrder = [
+        ...destinationContainerOriginalIssueOrder.slice(
+          0,
+          dragResult.destination.index
+        ),
+        dragResult.draggableId,
+        ...destinationContainerOriginalIssueOrder.slice(
+          dragResult.destination.index
+        ),
+      ];
+      setColumnData((columnData) => ({
+        ...columnData,
+        [dragResult.source.droppableId]: {
+          ...columnData[dragResult.source.droppableId],
+          issues: sourceContainerFilteredIssueOrder,
+        },
+        [dragResult.destination.droppableId]: {
+          ...columnData[dragResult.destination.droppableId],
+          issues: destinationContainerNewIssueOrder,
+        },
+      }));
     }
   };
 
+  const handleDragStart = (dragStart) =>
+    setDragOrigin(() => dragStart.source.droppableId);
+
+  useEffect(() => {
+    if (columns && issues) {
+      setColumnData(() => columns);
+    }
+  }, [columns]);
+
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
+    <DragDropContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
       <Wrapper>
-        {columns.map((column) => (
-          <IssuesColumn column={column} key={column.name} />
-        ))}
+        {columnData &&
+          Object.keys(columnData)
+            .map((key) => ({ ...columnData[key], name: key }))
+            .map((column) => (
+              <IssuesColumn
+                column={column}
+                dragOrigin={dragOrigin}
+                key={column.name}
+              />
+            ))}
       </Wrapper>
-      <pre>{JSON.stringify({ columns, issues }, null, 2)}</pre>
+      <pre>{JSON.stringify({ dragOrigin }, null, 2)}</pre>
     </DragDropContext>
   );
 };

@@ -1,17 +1,23 @@
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
-import Wrapper from "./styled";
+import Wrapper, { StyledDragHandle } from "./styled";
 
 const IssueComponent = ({ index, issue }) => {
   return (
-    <Draggable draggableId={issue.id} index={index} key={issue.id}>
+    <Draggable
+      draggableId={issue.id}
+      index={index}
+      isDragDisabled={false}
+      key={issue.id}
+    >
       {(provided, snapshot) => (
         <Wrapper
           {...provided.draggableProps}
-          {...provided.dragHandleProps}
+          assigned={issue.assignedTo}
           ref={provided.innerRef}
         >
+          <StyledDragHandle {...provided.dragHandleProps} />
           <div>{issue.body}</div>
         </Wrapper>
       )}
