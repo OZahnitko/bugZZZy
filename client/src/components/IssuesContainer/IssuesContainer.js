@@ -1,4 +1,3 @@
-import { Button, Modal } from "antd";
 import React, { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
@@ -11,7 +10,6 @@ const IssuesContainer = () => {
   const { columns, issues, unassignIssue } = useAppHooks();
   const [columnData, setColumnData] = useState(null);
   const [dragOrigin, setDragOrigin] = useState(null);
-  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleDragEnd = (dragResult) => {
     setDragOrigin(() => null);
@@ -96,25 +94,9 @@ const IssuesContainer = () => {
                   key={column.name}
                 />
               ))}
-          <Button
-            danger
-            onClick={() =>
-              setIsModalVisible((isModalVisible) => !isModalVisible)
-            }
-            type="primary"
-          >
-            Now this is a button
-          </Button>
         </Wrapper>
         <pre>{JSON.stringify({ columns, issues }, null, 2)}</pre>
       </DragDropContext>
-      <Modal
-        onCancel={() => setIsModalVisible(() => false)}
-        onOk={() => setIsModalVisible(() => false)}
-        visible={isModalVisible}
-      >
-        Henlo
-      </Modal>
     </>
   );
 };

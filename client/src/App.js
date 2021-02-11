@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { IssuesContainer } from "@components";
 import { useAppHooks } from "@hooks";
 
-import sampleData from "./sampleData_2.json";
+import sampleData from "./sampleData.json";
 import RootWrapper, { EditorWrapper } from "./styled";
 
 const App = () => {
