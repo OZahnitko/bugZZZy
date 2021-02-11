@@ -6,7 +6,7 @@ export const EditorWrapper = styled.div`
   overflow: hidden auto;
 
   .DraftEditor-root {
-    background-color: #eeeeee;
+    background-color: red;
     height: 200px;
     width: 50%;
     overflow-y: auto;
@@ -28,7 +28,7 @@ export const EditorWrapper = styled.div`
     width: 100%;
     display: block;
     padding: 5px;
-    border: 2.5px solid #eeeeee;
+    border: 2.5px solid red;
   }
 
   h1 {
