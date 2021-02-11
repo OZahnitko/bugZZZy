@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { COLUMNS_SET, ISSUE_UNASSIGNED, ISSUES_SET } from "@store";
+import { COLUMNS_SET, ISSUE_ADDED, ISSUE_UNASSIGNED, ISSUES_SET } from "@store";
 
 export const useAppHooks = () => {
   const dispatch = useDispatch();
@@ -9,6 +9,10 @@ export const useAppHooks = () => {
   const { columns, issues } = useSelector((state) => state.app);
 
   return {
+    addIssue: useCallback(
+      (newIssue) => dispatch({ payload: { newIssue }, type: ISSUE_ADDED }),
+      [dispatch]
+    ),
     columns,
     issues,
     setColumns: useCallback(

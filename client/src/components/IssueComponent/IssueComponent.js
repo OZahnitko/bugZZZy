@@ -1,3 +1,4 @@
+import { Avatar } from "antd";
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
@@ -19,6 +20,7 @@ const IssueComponent = ({ index, issue }) => {
         >
           <StyledDragHandle {...provided.dragHandleProps} />
           <div>{issue.body}</div>
+          {issue.assignedTo && <Avatar>{issue.assignedTo}</Avatar>}
         </Wrapper>
       )}
     </Draggable>
@@ -26,3 +28,5 @@ const IssueComponent = ({ index, issue }) => {
 };
 
 export default IssueComponent;
+
+// TODO: Modals don't work for shit

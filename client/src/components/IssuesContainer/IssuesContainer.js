@@ -1,3 +1,4 @@
+import { Button, Modal } from "antd";
 import React, { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
@@ -10,6 +11,7 @@ const IssuesContainer = () => {
   const { columns, issues, unassignIssue } = useAppHooks();
   const [columnData, setColumnData] = useState(null);
   const [dragOrigin, setDragOrigin] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleDragEnd = (dragResult) => {
     setDragOrigin(() => null);
@@ -81,21 +83,39 @@ const IssuesContainer = () => {
   }, [columns]);
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-      <Wrapper>
-        {columnData &&
-          Object.keys(columnData)
-            .map((key) => ({ ...columnData[key], name: key }))
-            .map((column) => (
-              <IssuesColumn
-                column={column}
-                dragOrigin={dragOrigin}
-                key={column.name}
-              />
-            ))}
-      </Wrapper>
-      <pre>{JSON.stringify({ dragOrigin }, null, 2)}</pre>
-    </DragDropContext>
+    <>
+      <DragDropContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
+        <Wrapper>
+          {columnData &&
+            Object.keys(columnData)
+              .map((key) => ({ ...columnData[key], name: key }))
+              .map((column) => (
+                <IssuesColumn
+                  column={column}
+                  dragOrigin={dragOrigin}
+                  key={column.name}
+                />
+              ))}
+          <Button
+            danger
+            onClick={() =>
+              setIsModalVisible((isModalVisible) => !isModalVisible)
+            }
+            type="primary"
+          >
+            Now this is a button
+          </Button>
+        </Wrapper>
+        <pre>{JSON.stringify({ columns, issues }, null, 2)}</pre>
+      </DragDropContext>
+      <Modal
+        onCancel={() => setIsModalVisible(() => false)}
+        onOk={() => setIsModalVisible(() => false)}
+        visible={isModalVisible}
+      >
+        Henlo
+      </Modal>
+    </>
   );
 };
 

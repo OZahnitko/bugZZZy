@@ -10,11 +10,13 @@ const IssuesColumn = ({ column: { issues, name }, dragOrigin }) => {
   const { issues: allIssues } = useAppHooks();
 
   return (
-    <Droppable droppableId={name} isDropDisabled={dragOrigin === "unassigned"}>
+    <Droppable droppableId={name}>
       {(provided, snapshot) => (
         <Wrapper {...provided.droppableProps} ref={provided.innerRef}>
           {/* TODO: Heading has to go outside of the drag container, as it messes us
           the drop animation */}
+          {/* TODO: When dropping an issue from the unassigned column into any other
+          column, force it to get assigned */}
           <IssueColumnHeading>{name}</IssueColumnHeading>
           {issues
             .map((issue) => allIssues.find((i) => i.id === issue))
