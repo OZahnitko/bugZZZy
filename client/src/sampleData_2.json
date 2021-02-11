@@ -1,11 +1,11 @@
 {
   "columns": {
-    "unassigned": { "issues": ["5", "6"], "order": 1 },
+    "unassigned": { "issues": [], "order": 1 },
     "assigned": { "issues": ["4"], "order": 2 },
     "in progress": { "issues": ["3"], "order": 3 },
     "testing": { "issues": ["2"], "order": 4 },
     "completed": { "issues": ["1"], "order": 5 },
-    "past": { "issues": [], "order": 6 }
+    "past": { "issues": ["5", "6"], "order": 6 }
   },
   "issues": [
     {
@@ -15,13 +15,13 @@
       "title": "Issues Number One"
     },
     {
-      "assignedTo": null,
+      "assignedTo": "Franklin",
       "body": "This is the body of the second issue.",
       "id": "2",
       "title": "Issues Number Two"
     },
     {
-      "assignedTo": null,
+      "assignedTo": "Michael",
       "body": "This is the body of the third issue.",
       "id": "3",
       "title": "Issues Number Three"
@@ -33,13 +33,13 @@
       "title": "Issues Number Four"
     },
     {
-      "assignedTo": null,
+      "assignedTo": "Billy",
       "body": "This is the body of the fifth issue.",
       "id": "5",
       "title": "Issues Number Five"
     },
     {
-      "assignedTo": null,
+      "assignedTo": "Trevor",
       "body": "This is the body of the sixth issue.",
       "id": "6",
       "title": "Issues Number Six"

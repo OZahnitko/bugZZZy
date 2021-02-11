@@ -10,7 +10,6 @@ const appReducer = (state = initialState, { payload, type }) => {
     case COLUMNS_SET:
       return { ...state, columns: payload.columns };
     case ISSUE_ADDED:
-      console.log(Math.max(...state.issues.map((issue) => issue.id)));
       const newIssue = {
         assignedTo:
           payload.newIssue.newIssueAssignTo === "unassigned"

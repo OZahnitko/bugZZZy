@@ -58,11 +58,9 @@ const App = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(e.target[0].value);
           const newIssueTitle = e.target[0].value;
           const newIssueBody = e.target[1].value;
           const newIssueAssignTo = e.target[2].value;
-          console.log(newIssueAssignTo);
           addIssue({ newIssueAssignTo, newIssueBody, newIssueTitle });
         }}
       >
