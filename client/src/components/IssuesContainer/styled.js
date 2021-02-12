@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+export const IssueCategoriesContainer = styled.div`
   align-items: flex-start;
-  border: 5px solid blue;
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 20px 20px 20px 0;
 `;
+
+const Wrapper = styled.div``;
 
 export default Wrapper;

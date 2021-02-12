@@ -1,2 +1,2 @@
-export * from "./AppHooks";
-export * from "./IssuesHooks";
+export * from "./issuesHooks";
+export * from "./usersHooks";

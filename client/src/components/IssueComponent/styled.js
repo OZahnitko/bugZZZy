@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
-export const StyledDragHandle = styled.div`
-  border: 5px solid red;
-  height: 20px;
-  width: 20px;
-`;
-
 const Wrapper = styled.div`
-  border: 2px solid ${(props) => (props.assigned ? "blue" : "red")};
-  cursor: pointer;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 5px 0 5px 0;
+  width: 100%;
 `;
 
 export default Wrapper;
