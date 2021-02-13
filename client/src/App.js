@@ -1,3 +1,5 @@
+// TODO: Get nginx popping
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -28,9 +30,6 @@ const App = () => {
   return (
     <RootWrapper>
       <IssuesContainer />
-      <pre>
-        {JSON.stringify({ issueCategories, issues, state, users }, null, 2)}
-      </pre>
     </RootWrapper>
   );
 };

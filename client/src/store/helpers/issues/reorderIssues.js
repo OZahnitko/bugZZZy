@@ -1,3 +1,5 @@
+// TODO: Convert to splice
+
 const reorderIssues = ({ dragResult }, state) => {
   if (dragResult.destination === null) {
     return state;
