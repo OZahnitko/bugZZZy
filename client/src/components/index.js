@@ -1,4 +1,5 @@
+export { default as Board } from "./Board/Board";
+export { default as Card } from "./Card/Card";
 export { default as GlobalStyle } from "./GlobalStyle/GlobalStyle";
-export { default as IssueCategory } from "./IssueCategory/IssueCategory";
-export { default as IssueComponent } from "./IssueComponent/IssueComponent";
-export { default as IssuesContainer } from "./IssuesContainer/IssuesContainer";
+export { default as List } from "./List/List";
+export { default as OptionsBar } from "./OptionsBar/OptionsBar";

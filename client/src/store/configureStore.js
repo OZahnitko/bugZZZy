@@ -1,13 +1,13 @@
 import { combineReducers, createStore } from "redux";
 
-import appReducer from "./modules/app";
-import issuesReducer from "./modules/issues";
-import usersReducer from "./modules/users";
+import { boardsReducer, cardsReducer, listsReducer } from "@store";
 
-export const store = createStore(
+const store = createStore(
   combineReducers({
-    app: appReducer,
-    issues: issuesReducer,
-    users: usersReducer,
+    boards: boardsReducer,
+    cards: cardsReducer,
+    lists: listsReducer,
   })
 );
+
+export default store;

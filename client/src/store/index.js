@@ -1,4 +1,4 @@
-export { store } from "./configureStore";
-export * from "./modules/app";
-export * from "./modules/issues";
-export * from "./modules/users";
+export * from "./modules/boards";
+export * from "./modules/cards";
+export * from "./modules/lists";
+export { default as store } from "./configureStore";

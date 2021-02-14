@@ -1,54 +1,30 @@
 {
-  "issueCategories": {
-    "assigned": { "issues": [], "order": 2 },
-    "completed": { "issues": ["1"], "order": 5 },
-    "in progress": { "issues": ["3"], "order": 3 },
-    "past": { "issues": ["5"], "order": 6 },
-    "testing": { "issues": [], "order": 4 },
-    "unassigned": { "issues": ["2", "4", "6"], "order": 1 }
-  },
-  "issues": [
+  "boards": [
     {
-      "assignedTo": "Sasha",
-      "body": "This is the body of the first issue.",
-      "id": "1",
-      "title": "Issues Number One"
-    },
-    {
-      "assignedTo": null,
-      "body": "This is the body of the second issue.",
-      "id": "2",
-      "title": "Issues Number Two"
-    },
-    {
-      "assignedTo": "Trevor",
-      "body": "This is the body of the third issue.",
-      "id": "3",
-      "title": "Issues Number Three"
-    },
-    {
-      "assignedTo": null,
-      "body": "This is the body of the fourth issue.",
-      "id": "4",
-      "title": "Issues Number Four"
-    },
-    {
-      "assignedTo": "Michael",
-      "body": "This is the body of the fifth issue.",
-      "id": "5",
-      "title": "Issues Number Five"
-    },
-    {
-      "assignedTo": null,
-      "body": "This is the body of the sixth issue.",
-      "id": "6",
-      "title": "Issues Number Six"
+      "boardId": "board-1",
+      "boardLists": ["list-1", "list-2"],
+      "boardName": "Test Board"
     }
   ],
-  "users": [
-    { "id": "1", "username": "Sasha" },
-    { "id": "2", "username": "Franklin" },
-    { "id": "3", "username": "Michael" },
-    { "id": "4", "username": "Trevor" }
-  ]
+  "cards": [
+    {
+      "cardBody": "This is the content of the Test Card",
+      "cardId": "card-1",
+      "cardTitle": "Test Card"
+    },
+    {
+      "cardBody": "This is the content of the second test card",
+      "cardId": "card-2",
+      "cardTittle": "Another Test Card"
+    }
+  ],
+  "lists": [
+    { "listCards": ["card-1"], "listId": "list-1", "listName": "Test List" },
+    {
+      "listCards": ["card-2"],
+      "listId": "list-2",
+      "listName": "Another Test List"
+    }
+  ],
+  "members": []
 }

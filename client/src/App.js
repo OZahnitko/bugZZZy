@@ -1,35 +1,27 @@
-// TODO: Get nginx popping
-import axios from "axios";
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 
-import { IssuesContainer } from "@components";
-import { useIssuesHooks, useUsersHooks } from "@hooks";
+import { Board } from "@components";
+import { useBoardsHooks, useCardsHooks, useListsHooks } from "@hooks";
 
 import sampleData from "./sampleData.json";
 import RootWrapper from "./styled";
 
 const App = () => {
-  const {
-    addIssue,
-    issueCategories,
-    issues,
-    setIssueCategories,
-    setIssues,
-    unassignIssue,
-  } = useIssuesHooks();
-  const state = useSelector((issues) => issues);
-  const { setUsers, users } = useUsersHooks();
+  const { boards, setBoards } = useBoardsHooks();
+  const { cards, setCards } = useCardsHooks();
+  const { lists, setLists } = useListsHooks();
 
   useEffect(() => {
-    setIssueCategories(sampleData.issueCategories);
-    setIssues(sampleData.issues);
-    setUsers(sampleData.users);
+    setBoards(sampleData.boards);
+    setLists(sampleData.lists);
+    setCards(sampleData.cards);
   }, []);
 
   return (
     <RootWrapper>
-      <IssuesContainer />
+      {boards &&
+        boards.map((board) => <Board board={board} key={board.boardId} />)}
+      <pre>{JSON.stringify({ lists }, null, 2)}</pre>
     </RootWrapper>
   );
 };
