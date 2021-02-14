@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 
 import { GlobalStyle } from "@components";
 import { store } from "@store";
-import * as theme from "@theme";
+import theme from "@theme";
 
 import App from "./App";
 
